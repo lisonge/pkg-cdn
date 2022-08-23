@@ -9,6 +9,12 @@ export const existFile = async (path: string) => {
   }
 };
 
+const processObj = {
+  env: {
+    NODE_ENV: 'production', // development/production
+  },
+};
+
 (async () => {
   const prettierPluginJavaPkg: Record<string, string> = JSON.parse(
     (
@@ -21,12 +27,31 @@ export const existFile = async (path: string) => {
       `./dist/${prettierPluginJavaPkg.name}/v${prettierPluginJavaPkg.version}.iife.js`
     )
   ) {
-    return;
+    // return;
   }
 
   await build({
+    plugins: [
+      {
+        name: 'fix_process',
+        transform(code, id) {
+          if (
+            id.endsWith('/node_modules/java-parser/src/utils.js') &&
+            code.includes('process')
+          ) {
+            return {
+              code: [code, ';globalThis.process = globalThis.process;'].join(
+                '\n'
+              ),
+              map: null,
+            };
+          }
+          return;
+        },
+      },
+    ],
     define: {
-      'process.env.NODE_ENV': 'production', // development/production
+      'process.env.NODE_ENV': JSON.stringify(processObj.env.NODE_ENV),
     },
     build: {
       emptyOutDir: false,
