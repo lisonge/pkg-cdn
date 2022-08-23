@@ -1,7 +1,6 @@
 {
   "name": "pkg-cdn",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "tsx main.ts"
@@ -15,5 +14,25 @@
   },
   "volta": {
     "node": "16.17.0"
-  }
+  },
+  "files": [
+    "main.ts",
+    "dist",
+    "pnpm-lock.yaml",
+    "tsup.config.ts",
+    "tsconfig.json"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "lisonge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisonge/pkg-cdn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lisonge/pkg-cdn/issues"
+  },
+  "homepage": "https://github.com/lisonge/pkg-cdn#readme"
 }
