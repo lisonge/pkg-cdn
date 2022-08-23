@@ -4,4 +4,4 @@
 
 <https://cdn.jsdelivr.net/gh/lisonge/pkg-cdn@main/dist/>
 
-<https://unpkg.com/browse/pkg-cdn/dist/>
+<https://unpkg.com/pkg-cdn/dist/>
