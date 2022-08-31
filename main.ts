@@ -27,7 +27,7 @@ const processObj = {
       `./dist/${prettierPluginJavaPkg.name}/v${prettierPluginJavaPkg.version}.iife.js`
     )
   ) {
-    // return;
+    return;
   }
 
   await build({
@@ -69,6 +69,48 @@ const processObj = {
           return `prettier-plugin-java/v${prettierPluginJavaPkg.version}.${format}.js`;
         },
         name: `PrettierPluginJava`,
+      },
+    },
+  });
+})();
+
+(async () => {
+  const pkgName = 'vue-toastification';
+  const vueToastificationPkg: Record<string, string> = JSON.parse(
+    (await fs.readFile(`./node_modules/${pkgName}/package.json`)).toString(
+      'utf-8'
+    )
+  );
+
+  if (
+    await existFile(
+      `./dist/${vueToastificationPkg.name}/v${vueToastificationPkg.version}.iife.js`
+    )
+  ) {
+    return;
+  }
+
+  await build({
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(processObj.env.NODE_ENV),
+    },
+    build: {
+      emptyOutDir: false,
+      sourcemap: true,
+      rollupOptions: {
+        external: ['vue'],
+        output: {
+          globals: { vue: 'Vue' },
+          exports: 'named',
+        },
+      },
+      lib: {
+        entry: `./node_modules/${pkgName}`,
+        formats: ['iife', 'umd'],
+        fileName: (format) => {
+          return `${pkgName}/v${vueToastificationPkg.version}.${format}.js`;
+        },
+        name: `VueToastification`,
       },
     },
   });

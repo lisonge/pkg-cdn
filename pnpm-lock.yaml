@@ -3,16 +3,18 @@ lockfileVersion: 5.4
 specifiers:
   '@types/node': 16.11.52
   prettier-plugin-java: 1.6.2
-  tsx: 3.8.2
-  typescript: 4.7.4
+  tsx: 3.9.0
+  typescript: 4.8.2
   vite: 3.0.9
+  vue-toastification: 2.0.0-rc.5
 
 devDependencies:
   '@types/node': 16.11.52
   prettier-plugin-java: 1.6.2
-  tsx: 3.8.2
-  typescript: 4.7.4
+  tsx: 3.9.0
+  typescript: 4.8.2
   vite: 3.0.9
+  vue-toastification: 2.0.0-rc.5
 
 packages:
 
@@ -607,8 +609,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /tsx/3.8.2:
-    resolution: {integrity: sha512-Jf9izq3Youry5aEarspf6Gm+v/IE2A2xP7YVhtNH1VSCpM0jjACg7C3oD5rIoLBfXWGJSZj4KKC2bwE0TgLb2Q==}
+  /tsx/3.9.0:
+    resolution: {integrity: sha512-ofxsE+qjqCYYq4UBt5khglvb+ESgxef1YpuNcdQI92kvcAT2tZVrnSK3g4bRXTUhLmKHcC5q8vIZA47os/stng==}
     hasBin: true
     dependencies:
       '@esbuild-kit/cjs-loader': 2.3.3
@@ -618,8 +620,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /typescript/4.7.4:
-    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
+  /typescript/4.8.2:
+    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
@@ -649,4 +651,10 @@ packages:
       rollup: 2.77.3
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /vue-toastification/2.0.0-rc.5:
+    resolution: {integrity: sha512-q73e5jy6gucEO/U+P48hqX+/qyXDozAGmaGgLFm5tXX4wJBcVsnGp4e/iJqlm9xzHETYOilUuwOUje2Qg1JdwA==}
+    peerDependencies:
+      vue: ^3.0.2
     dev: true
