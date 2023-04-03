@@ -1,16 +1,16 @@
 {
   "name": "pkg-cdn",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "build": "tsx main.ts"
   },
   "devDependencies": {
     "@types/node": "16.11.52",
-    "prettier-plugin-java": "1.6.2",
-    "tsx": "3.9.0",
-    "typescript": "4.8.2",
-    "vite": "3.0.9",
+    "prettier-plugin-java": "2.1.0",
+    "tsx": "3.12.6",
+    "typescript": "5.0.3",
+    "vite": "4.2.1",
     "vue-toastification": "2.0.0-rc.5"
   },
   "volta": {
@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/lisonge/pkg-cdn/issues"
   },
-  "homepage": "https://github.com/lisonge/pkg-cdn#readme"
+  "homepage": "https://github.com/lisonge/pkg-cdn#readme",
+  "dependencies": {
+    "svgo": "3.0.2"
+  }
 }

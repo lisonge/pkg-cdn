@@ -115,3 +115,43 @@ const processObj = {
     },
   });
 })();
+
+(async () => {
+  const pkgName = 'svgo';
+  const pkg: Record<string, string> = JSON.parse(
+    (await fs.readFile(`./node_modules/${pkgName}/package.json`)).toString(
+      'utf-8'
+    )
+  );
+
+  if (
+    await existFile(
+      `./dist/${pkg.name}/v${pkg.version}.iife.js`
+    )
+  ) {
+    return;
+  }
+
+  await build({
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(processObj.env.NODE_ENV),
+    },
+    build: {
+      emptyOutDir: false,
+      sourcemap: true,
+      rollupOptions: {
+        output:{
+          exports:'named'
+        }
+      },
+      lib: {
+        entry: `./node_modules/svgo/dist/svgo.browser.js`,
+        formats: ['iife', 'umd'],
+        fileName: (format) => {
+          return `${pkgName}/v${pkg.version}.${format}.js`;
+        },
+        name: `Svgo`,
+      },
+    },
+  });
+})();
